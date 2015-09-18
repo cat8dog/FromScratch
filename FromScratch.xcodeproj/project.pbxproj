@@ -14,6 +14,8 @@
 		2864B99A1BAA01C7006E9E2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2864B9981BAA01C7006E9E2B /* LaunchScreen.xib */; };
 		2864B9A61BAA01C7006E9E2B /* FromScratchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864B9A51BAA01C7006E9E2B /* FromScratchTests.swift */; };
 		2864B9E91BAB46A0006E9E2B /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864B9E81BAB46A0006E9E2B /* APIController.swift */; };
+		2864B9ED1BAC9284006E9E2B /* blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 2864B9EC1BAC9284006E9E2B /* blank52.png */; };
+		2864B9EF1BACB17F006E9E2B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864B9EE1BACB17F006E9E2B /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		2864B9A41BAA01C7006E9E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2864B9A51BAA01C7006E9E2B /* FromScratchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromScratchTests.swift; sourceTree = "<group>"; };
 		2864B9E81BAB46A0006E9E2B /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		2864B9EC1BAC9284006E9E2B /* blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank52.png; sourceTree = SOURCE_ROOT; };
+		2864B9EE1BACB17F006E9E2B /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		2864B98C1BAA01C7006E9E2B /* FromScratch */ = {
 			isa = PBXGroup;
 			children = (
+				2864B9EC1BAC9284006E9E2B /* blank52.png */,
 				2864B98F1BAA01C7006E9E2B /* AppDelegate.swift */,
 				2864B9911BAA01C7006E9E2B /* SearchResultsViewController.swift */,
 				2864B9E81BAB46A0006E9E2B /* APIController.swift */,
@@ -86,6 +91,7 @@
 				2864B9961BAA01C7006E9E2B /* Images.xcassets */,
 				2864B9981BAA01C7006E9E2B /* LaunchScreen.xib */,
 				2864B98D1BAA01C7006E9E2B /* Supporting Files */,
+				2864B9EE1BACB17F006E9E2B /* Album.swift */,
 			);
 			path = FromScratch;
 			sourceTree = "<group>";
@@ -196,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2864B9951BAA01C7006E9E2B /* Main.storyboard in Resources */,
+				2864B9ED1BAC9284006E9E2B /* blank52.png in Resources */,
 				2864B99A1BAA01C7006E9E2B /* LaunchScreen.xib in Resources */,
 				2864B9971BAA01C7006E9E2B /* Images.xcassets in Resources */,
 			);
@@ -218,6 +225,7 @@
 				2864B9921BAA01C7006E9E2B /* SearchResultsViewController.swift in Sources */,
 				2864B9901BAA01C7006E9E2B /* AppDelegate.swift in Sources */,
 				2864B9E91BAB46A0006E9E2B /* APIController.swift in Sources */,
+				2864B9EF1BACB17F006E9E2B /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

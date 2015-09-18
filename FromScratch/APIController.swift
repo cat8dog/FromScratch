@@ -7,7 +7,11 @@ protocol APIControllerProtocol {
 
 class APIController {
     
-    var delegate: APIControllerProtocol?
+    var delegate: APIControllerProtocol
+    
+    init(delegate: APIControllerProtocol) {
+        self.delegate = delegate
+    }
     
     func searchItunesFor(searchTerm: String) {
         // The iTunes API wants multiple terms separated by + symbols, so replace spaces with + signs
@@ -15,7 +19,7 @@ class APIController {
         
         // Now escape anything that isn't URL-friendly
         if let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
-            let urlPath = "http://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software"
+            let urlPath = "http://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
             let url = NSURL(string: urlPath)
             
             // Grabs the default NSURLSession object.  Used for all networking calls.
@@ -48,7 +52,7 @@ class APIController {
                     }
                     if let results: NSArray = jsonResult["results"] as? NSArray {
                         
-                        self.delegate?.didReceiveAPIResults(results)
+                        self.delegate.didReceiveAPIResults(results)
                        
                         // Below is the former method of retrieving results, before moving the API call off the original ViewController.
                         /* dispatch_async(dispatch_get_main_queue(), {

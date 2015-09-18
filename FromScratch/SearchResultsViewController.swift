@@ -3,7 +3,7 @@ import UIKit
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
-    let api = APIController()
+    var api : APIController!
     var tableData = []
     let kCellIdentifier: String = "SearchResultCell"
     // add a lookup dictionary 
@@ -26,8 +26,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         override func viewDidLoad() {
         super.viewDidLoad()
             
-        api.delegate = self
-        
+        api = APIController(delegate: self)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         // Calling the method from an instance of an APIController, as opposed to from this View Controller. 
         api.searchItunesFor("Tetris")
     }
@@ -58,8 +58,38 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                     cell.imageView?.image = UIImage(data: imgData)
                     // Update the textLabel text to use the trackName from the API
                     cell.textLabel?.text = trackName
+                    
+                    // Set cell's image to a static file (otherwise won't have an image view)
+                    cell.imageView?.image = UIImage(named: "Blank52")
+                    
+                    // If image is already chached, don't re-download
+                    if let img = imageCache[urlString] {
+                        cell.imageView?.image = img
+                    }
+                    else {
+                        // The image isn't chached, download the img data
+                        // We should perform this request in a background thread
+                        let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                        let mainQueue = NSOperationQueue.mainQueue()
+                        NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
+                            if error == nil {
+                                // Convert the donloaded data into a UIImage object
+                                let image = UIImage(data: data)
+                                // Store the image to our cache
+                                self.imageCache[urlString] = image                                // Update the cell
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                                        cellToUpdate.imageView?.image = image
+                                    }
+                                })
+                            }
+                            else {
+                                println("Error: \(error.localizedDescription)")
+                            }
+                        })
+                    }
+                    
             }
-            
             
             return cell
         }
