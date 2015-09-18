@@ -9,8 +9,10 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     // add a lookup dictionary 
     // will be presented like this: imageCache["Bob"] = UIImage(named: "BobsPicture.jpg")
     // to get it back out: 
-        // let imageOfBob = imageCache["Bob"] - the [] is for calling the constructor method to init the empty dictionary.  
+        // let imageOfBob = imageCache["Bob"] - the [] is for calling the constructor method to init the empty dictionary.
     var imageCache = [String:UIImage]()
+    
+    //test git
 
     @IBOutlet var appsTableView : UITableView!
     
