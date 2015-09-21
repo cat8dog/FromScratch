@@ -12,17 +12,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         // let imageOfBob = imageCache["Bob"] - the [] is for calling the constructor method to init the empty dictionary.
     var imageCache = [String:UIImage]()
     
-    //test git
 
     @IBOutlet var appsTableView : UITableView!
-    
-    func didReceiveAPIResults(results: NSArray) {
-        dispatch_async(dispatch_get_main_queue(), {
-        self.albums = Album.albumsWithJSON(results)
-            self.appsTableView!.reloadData()
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        })
-    }
     
         override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +21,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         api = APIController(delegate: self)
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         // Calling the method from an instance of an APIController, as opposed to from this View Controller. 
-        api.searchItunesFor("Nirvana")
+        api.searchItunesFor("Beatles")
     }
     
     
@@ -109,6 +100,14 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         }
     
     
+    func didReceiveAPIResults(results: NSArray) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.albums = Album.albumsWithJSON(results)
+            self.appsTableView!.reloadData()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
+
 //    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
 //        // Get the row data for the selected row
 //        if let rowData = self.tableData[indexPath.row] as? NSDictionary,
@@ -130,6 +129,9 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
 
+    
 
 }
+
+
 

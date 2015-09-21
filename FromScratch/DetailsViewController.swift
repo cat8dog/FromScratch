@@ -1,10 +1,10 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-    
+    var album: Album?
     @IBOutlet var albumCover: UIImageView!
     @IBOutlet var titleLabel: UILabel!
-    var album: Album!
+    
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
