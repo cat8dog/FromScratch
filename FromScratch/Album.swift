@@ -6,7 +6,7 @@ struct Album {
     let title: String
     let price: String
     let thumbnailImageURL: String
-    let largeImageURL: String
+    let largeImageURL: String?
     let itemURL: String
     let artistURL: String
     
@@ -50,7 +50,7 @@ struct Album {
             }
         
         let thumbnailURL = result["artworkUrl60"] as? String ?? ""
-        let imageURL = result["artworkURl100"] as? String ?? ""
+        let imageURL = result["artworkUrl100"] as? String ?? ""
         let artistURL = result["artistViewUrl"] as? String ?? ""
         
         var itemURL = result["collectionViewUrl"] as? String

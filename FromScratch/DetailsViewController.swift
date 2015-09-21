@@ -14,8 +14,8 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         titleLabel.text = self.album?.title
-        var url = NSURL(string: self.album!.largeImageURL)!
-        var imageData = NSData(contentsOfURL: url)
+        var url = NSURL(string: self.album!.largeImageURL!)
+        var imageData = NSData(contentsOfURL: url!)
         var loadImageData = UIImage(data:imageData!)
       //  albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.album!.largeImageURL)!)!)
 
