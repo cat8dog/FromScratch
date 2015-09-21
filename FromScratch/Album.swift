@@ -19,7 +19,7 @@ struct Album {
         self.artistURL = artistURL
     }
 
-}
+
     static func albumsWithJSON(results: NSArray) -> [Album] {
     // create an empty array of Albums to append to from this list
     var albums = [Album]()
@@ -47,13 +47,13 @@ struct Album {
                         price = "$\(nf.stringFromNumber(priceFloat!)!)"
                 }
             }
-        }
+            }
         
         let thumbnailURL = result["artworkUrl60"] as? String ?? ""
         let imageURL = result["artworkURl100"] as? String ?? ""
         let artistURL = result["artistViewUrl"] as? String ?? ""
         
-        var itemURL = result["collectionViewURl"] as? String
+        var itemURL = result["collectionViewUrl"] as? String
         if itemURL == nil {
             itemURL = result["trackViewUrl"] as? String
             }
@@ -63,4 +63,5 @@ struct Album {
     }
     }
     return albums
+}
 }

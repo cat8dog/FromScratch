@@ -30,7 +30,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         api = APIController(delegate: self)
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         // Calling the method from an instance of an APIController, as opposed to from this View Controller. 
-        api.searchItunesFor("Beatles")
+        api.searchItunesFor("Nirvana")
     }
     
     
@@ -122,10 +122,12 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
 //        }
 //    }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let detailsViewController: DetailsViewController = segue.destinationViewController as? DetailsViewController {
+            var albumIndex = appsTableView!.indexPathForSelectedRow()!.row
+            var selectedAlbum = self.albums[albumIndex]
+            detailsViewController.album = selectedAlbum
+        }
     }
 
 
