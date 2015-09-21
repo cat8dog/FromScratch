@@ -84,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				2864B9EC1BAC9284006E9E2B /* blank52.png */,
+				2864B9EE1BACB17F006E9E2B /* Album.swift */,
 				2864B98F1BAA01C7006E9E2B /* AppDelegate.swift */,
 				2864B9911BAA01C7006E9E2B /* SearchResultsViewController.swift */,
 				2864B9E81BAB46A0006E9E2B /* APIController.swift */,
@@ -91,7 +92,6 @@
 				2864B9961BAA01C7006E9E2B /* Images.xcassets */,
 				2864B9981BAA01C7006E9E2B /* LaunchScreen.xib */,
 				2864B98D1BAA01C7006E9E2B /* Supporting Files */,
-				2864B9EE1BACB17F006E9E2B /* Album.swift */,
 			);
 			path = FromScratch;
 			sourceTree = "<group>";
